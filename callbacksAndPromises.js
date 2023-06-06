@@ -50,6 +50,16 @@ const watchPromiseMovie3 = new Promise((res, rej) => {
   }
 });
 
+//2. Async await (returns promise Object)
+
+async function watchMovieAsync() {
+  console.log('inside async');
+  let data = await watchPromiseMovie2();
+  return data;
+}
+
+// Calling using then
+
 watchPromiseMovie2()
   .then((x) => {
     console.log(x.message);
@@ -59,13 +69,9 @@ watchPromiseMovie2()
     console.log(x);
   });
 
-//Async await
-
-async function watchMovieAsync() {
-  let data = await watchPromiseMovie2();
-  console.log(data);
-}
-
-watchMovieAsync();
+watchMovieAsync().then((x) => {
+  console.log('async call');
+  console.log(x);
+});
 
 console.log('runs before all promises');

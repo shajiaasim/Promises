@@ -1,1 +1,1 @@
-import './timeLimitedPromise.js';
+import './callbacksAndPromises.js';

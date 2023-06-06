@@ -15,7 +15,7 @@ var oneSecontToExecuteAsync = async (n) => {
   return n * n;
 };
 
-//Output
+//Solution
 function timeLimit(cb, t) {
   return new Promise((res, rej) => {
     cb(x).then((x) => {
