@@ -1,1 +1,1 @@
-import './counter2.js';
+import './timeLimitedPromise.js';
