@@ -1,8 +1,25 @@
-//Output
-function timeLimit(fn, t) {
+//input
+
+var x = 5;
+
+function oneSecondsToExecute() {
   return new Promise((res, rej) => {
-    fn().then(() => {
+    setTimeout(() => {
       res();
+    }, 1000);
+  });
+}
+
+var oneSecontToExecuteAsync = async (n) => {
+  await new Promise((res) => setTimeout(res, 100));
+  return n * n;
+};
+
+//Output
+function timeLimit(cb, t) {
+  return new Promise((res, rej) => {
+    cb(x).then((x) => {
+      res(x);
     });
     setTimeout(() => {
       rej('failed');
@@ -11,21 +28,20 @@ function timeLimit(fn, t) {
 }
 
 //input
-function fiveSecondsToExecute() {
+function oneSecondsToExecute() {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      res('Done');
-    }, 5000);
+      res();
+    }, 1000);
   });
 }
 
-//
-// var oneSecontToExecute = async (n) => {
-//   await new Promise((res) => setTimeout(res, 100));
-//   return n * n;
-// };
+var oneSecontToExecuteAsync = async (n) => {
+  await new Promise((res) => setTimeout(res, 100));
+  return n * n;
+};
 
-timeLimit(fiveSecondsToExecute(), 10000)
+timeLimit(oneSecontToExecuteAsync, 10000)
   .then((x) => {
     console.log(x);
   })

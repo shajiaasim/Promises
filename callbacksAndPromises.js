@@ -9,15 +9,16 @@ function watchMovie(success, reject) {
   }
 }
 
-watchMovie(
-  (x, y) => {
-    console.log(x);
-    console.log(y);
-  },
-  (x) => {
-    console.log(x);
-  }
-);
+const success = (x, y) => {
+  console.log(x);
+  console.log(y);
+};
+
+const reject = (x) => {
+  console.log(x);
+};
+
+watchMovie(success, reject);
 
 //Promises -- 1 (function)
 function watchPromiseMovie1() {
